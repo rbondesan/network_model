@@ -1,0 +1,32 @@
+****************************************************************
+Requirements: python3 and scipy.
+
+****************************************************************
+Files:
+network.py: class network_class with main objects to work with
+compute_psics.py: computes scattering wavefunctions
+compute_psum_Xpf.py: compute partial sums over a certain disorder realizations of X point functions
+compute_av_Xpf.py: average of X point functions from partial sums
+
+****************************************************************
+Example: 
+
+1. Compute E( |psi_c(r)|^(2q) ) for cylinder L=200, W=25,
+   point contact c @ coordinates (99,0,3)
+   r observation point in region (49->150,0,2->3)
+   over 1000 realizations, saving results to file after 10 iterations:
+
+   python3 compute_psics.py -L200 -W25 -b cylinder -c 99 0 3 \
+   	   		    	       -R 49 150 0 1 2 4 -d 100 -u 10
+
+   Do it again (typically parallely) for other sets of disorder realizations:
+
+2. Compute the partial sums:
+   For all files F containing the disorder averages, do
+
+   python3 compute_psum_2pf.py -L200 -W25 -b cylinder -c 99 0 3 \
+   	   -R 49 150 0 1 2 4 -f $F -q 0.5 -i 0
+
+3. Finally average
+   python3 compute_av_2pf.py -L200 -W25 -b cylinder -c 99 0 3 \
+   	   -R 49 150 0 1 2 4 -q 0.5 -i 0
