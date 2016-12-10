@@ -15,7 +15,7 @@ Example:
 1. Compute E( |psi_c(r)|^(2q) ) for cylinder L=200, W=25,
    point contact c @ coordinates (99,0,3)
    r observation point in region (49->150,0,2->3)
-   over 1000 realizations, saving results to file after 100 iterations:
+   over 1000 realizations, saving results to file each 100 iterations:
 
    python3 compute_psics.py -L200 -W25 -b cylinder -c 99 0 3 \
    	   		    	       -R 49 150 0 1 2 4 -d 1000 -u 100
